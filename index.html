@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/book.css" />
     <title>Book Shop</title>
   </head>
-  <body>
+  <body onload="onInit()">
     <h1>Book Shop</h1>
     <table>
       <thead>
@@ -16,34 +16,7 @@
           <th>Actions</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td>book</td>
-          <td>120</td>
-          <td>
-            <button onclick="btn">Read</button>
-            <button onclick="btn">Update</button>
-            <button onclick="btn">Delete</button>
-          </td>
-        </tr>
-        <tr>
-          <td>book2</td>
-          <td>300</td>
-          <td>
-            <button onclick="btn">Read</button>
-            <button onclick="btn">Update</button>
-            <button onclick="btn">Delete</button>
-          </td>
-        </tr>
-        <tr>
-          <td>book3</td>
-          <td>87</td>
-          <td>
-            <button onclick="btn">Read</button>
-            <button onclick="btn">Update</button>
-            <button onclick="btn">Delete</button>
-          </td>
-        </tr>
+      <tbody class="books-table">
       </tbody>
     </table>
 
