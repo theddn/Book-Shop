@@ -12,11 +12,16 @@ function renderBooks(){
      <td class="${book.price}">${book.price}</td>
      <td>
        <button onclick="onReadBook('${book.id}')">Read</button>
-       <button onclick="oUpdateBook('${book.id}')">Update</button>
-       <button onclick="onDeleteBook('${book.id}')">Delete</button>
+       <button onclick="onUpdateBook('${book.id}')">Update</button>
+       <button onclick="onRemoveBook('${book.id}')">Delete</button>
      </td>
    </tr>`)
    elBooks.innerHTML = strHtmls.join('')
+}
+
+function onRemoveBook(bookId) {
+    removeBook(bookId)
+    renderBooks()
 }
 
 function onReadBook() {
@@ -26,7 +31,3 @@ function onReadBook() {
  function oUpdateBook(){
     console.log('update')
  }
-
-function onDeleteBook(bookId) {
-    console.log('bookId',bookId);
-}
