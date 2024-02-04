@@ -2,30 +2,36 @@
 
 var gBooks = [
     {
-        id: 'bg4J78',
+        id: 'bg1',
         title: 'Monkey Puzzle',
-        price: '120',
+        price: 120,
         imgUrl: 'monkey.webp',
     },
     {
-        id: 'bg4J34',
+        id: 'bg2',
         title: 'The Gruffalo',
-        price: '300',
+        price: 300,
         imgUrl: 'monster.webp',
     },
     {
-        id: 'bg4J72',
+        id: 'bg3',
         title: 'Room on the Broom',
-        price: '87',
+        price: 87,
         imgUrl: 'witch.webp',
     },
 ]
-
-function getBooks(){
+console.log(gBooks);
+function getBooks() {
     return gBooks
 }
 
-function removeBook(bookId){
+function removeBook(bookId) {
     const idx = gBooks.findIndex(book => book.id === bookId)
-    gBooks.splice(idx,1)
+    gBooks.splice(idx, 1)
+}
+
+function updatePrice(bookId) {
+    const book = gBooks.find(book => book.id === bookId)
+    book.price = +prompt('update price:')
+    return book.price
 }

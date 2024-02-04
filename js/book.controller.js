@@ -9,7 +9,7 @@ function renderBooks(){
     const books = getBooks()
      const strHtmls = books.map(book =>` <tr>
      <td class="${book.id}">${book.title}</td>
-     <td class="${book.price}">${book.price}</td>
+     <td class="${book.id}">${book.price}</td>
      <td>
        <button onclick="onReadBook('${book.id}')">Read</button>
        <button onclick="onUpdateBook('${book.id}')">Update</button>
@@ -24,10 +24,11 @@ function onRemoveBook(bookId) {
     renderBooks()
 }
 
+function onUpdateBook(bookId){
+  updatePrice(bookId)
+  renderBooks()
+}
+
 function onReadBook() {
     console.log('hello')   
 }
-
- function oUpdateBook(){
-    console.log('update')
- }
