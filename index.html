@@ -8,6 +8,12 @@
   </head>
   <body onload="onInit()">
     <h1>Book Shop</h1>
+
+    <form onsubmit="onAddBook(event)" class="new-book">
+      <input type="text" placeholder="Add a Book" />
+      <button>Add</button>
+    </form>
+
     <table>
       <thead>
         <tr>
@@ -16,10 +22,11 @@
           <th>Actions</th>
         </tr>
       </thead>
-      <tbody class="books-table">
-      </tbody>
+      <tbody class="books-table"></tbody>
     </table>
-
+    
+    <script src="js/services/util.service.js"></script>
+    <script src="js/services/storage.service.js"></script>
     <script src="js/services/book.service.js"></script>
     <script src="js/book.controller.js"></script>
   </body>
