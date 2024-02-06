@@ -23,8 +23,6 @@
 var gBooks
 _createBooks()
 
-console.log(gBooks);
-
 function getBooks() {
     return gBooks
 }
@@ -41,11 +39,15 @@ function updatePrice(bookId) {
     _saveBooks()
     return book.price
 }
-function addBook(txt) {
-    const book = _createBook(txt)
-    gBooks.unshift(book)
+
+function addBook(name,price) {
+    gBooks.unshift(_createBook(name, price))
     _saveBooks()
-    return book
+}
+
+function readBook(bookId) {
+    const book = gBooks.find(book => book.id === bookId)
+	return book
 }
 
 function _createBooks() {

@@ -29,17 +29,14 @@ function onUpdateBook(bookId){
   renderBooks()
 }
 
-function onAddBook(ev){
-    ev.preventDefault()
-    
-    const elInput = document.querySelector('.new-book input')
-
-    addBook(elInput.value)
-
-    elInput.value = ''
+function onAddBook(){
+  const bookName = prompt('Enter book name:')
+  const bookPrice = prompt('Enter book price:')
+  
+    addBook(bookName,bookPrice)
     renderBooks()
 }
 
-function onReadBook() {
-    console.log('hello')   
+function onReadBook(bookId) {
+  
 }
