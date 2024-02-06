@@ -23,8 +23,10 @@
 var gBooks
 _createBooks()
 
-function getBooks() {
-    return gBooks
+function getBooks(filterBy) {
+    if (!filterBy) return gBooks
+    var filterdBooks = gBooks.filter(book => book.title.toLowerCase().includes(filterBy.toLowerCase()))
+    return filterdBooks
 }
 
 function removeBook(bookId) {

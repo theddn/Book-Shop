@@ -21,3 +21,6 @@ table td {
   position: relative;
 }
 
+.search {
+  float: left;
+}

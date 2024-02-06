@@ -1,12 +1,14 @@
 'use strict'
 
+var gFilterBy = ''
+
 function onInit(){
     renderBooks()
 }
 
 function renderBooks(){
      const elBooks = document.querySelector('.books-table')
-    const books = getBooks()
+    const books = getBooks(gFilterBy)
      const strHtmls = books.map(book =>` <tr>
      <td class="${book.id}">${book.title}</td>
      <td class="${book.id}">${book.price}</td>
@@ -47,4 +49,18 @@ function onReadBook(bookId) {
   pre.innerHTML = JSON.stringify(book, null, 3)
 
   elModal.showModal()
+}
+
+function onBookFilter(){
+  const input = document.querySelector('input')
+  gFilterBy = input.value
+
+  renderBooks()
+}
+
+function onClearFilter() {
+  const elSearch = document.querySelector('.menu input')
+  elSearch.value = gFilterBy = ''
+
+  renderBooks()
 }
