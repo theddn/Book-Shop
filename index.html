@@ -9,11 +9,10 @@
   <body onload="onInit()">
     <h1>Book Shop</h1>
     <div class="menu">
-    <form onsubmit="" class="new-book">
+    <form onsubmit="" class="search">
       <input type="text" placeholder="Search..." />
-      
     </form>
-    <button onclick="onAddBook(event)">Add</button>
+    <button onclick="onAddBook()">Add</button>
     </div>
     <table>
       <thead>
@@ -25,6 +24,13 @@
       </thead>
       <tbody class="books-table"></tbody>
     </table>
+
+    <dialog class="book-details">
+      <form method="dialog">
+          <pre></pre>
+          <button class="close-details">X</button>
+      </form>
+  </dialog>
 
     <script src="js/services/util.service.js"></script>
     <script src="js/services/storage.service.js"></script>

@@ -40,5 +40,11 @@ function onAddBook(){
 }
 
 function onReadBook(bookId) {
-  
+  const book = getBookById(bookId)
+  const elModal = document.querySelector('.book-details')
+  const pre = elModal.querySelector('pre')
+
+  pre.innerHTML = JSON.stringify(book, null, 3)
+
+  elModal.showModal()
 }

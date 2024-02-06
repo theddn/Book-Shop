@@ -16,3 +16,8 @@ table td {
   padding: 0.5em;
   border: 1px solid lightgray;
 }
+
+.book-details {
+  position: relative;
+}
+
