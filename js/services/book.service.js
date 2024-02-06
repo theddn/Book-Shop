@@ -33,11 +33,10 @@ function removeBook(bookId) {
     _saveBooks()
 }
 
-function updatePrice(bookId) {
+function updatePrice(bookId,price) {
     const book = gBooks.find(book => book.id === bookId)
-    book.price = +prompt('update price:')
+    book.price = price
     _saveBooks()
-    return book.price
 }
 
 function addBook(name,price) {
