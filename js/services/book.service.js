@@ -1,25 +1,5 @@
 'use strict'
 
-// var gBooks = [
-//     {
-//         id: 'bg1',
-//         title: 'Monkey Puzzle',
-//         price: 120,
-//         imgUrl: 'monkey.webp',
-//     },
-//     {
-//         id: 'bg2',
-//         title: 'The Gruffalo',
-//         price: 300,
-//         imgUrl: 'monster.webp',
-//     },
-//     {
-//         id: 'bg3',
-//         title: 'Room on the Broom',
-//         price: 87,
-//         imgUrl: 'witch.webp',
-//     },
-// ]
 var gBooks
 _createBooks()
 
@@ -50,7 +30,7 @@ function getBookById(bookId) {
     const book = gBooks.find(book => book.id === bookId)
 	return book
 }
-
+//private functions
 function _createBooks() {
     gBooks = loadFromStorage('bookDB')
     if (!gBooks || gBooks.length === 0) {
@@ -71,6 +51,7 @@ function _createBook(title, imgUrl) {
         title,
         price: getRandomInt(25, 150),
         imgUrl,
+        rate:getRandomInt(0, 5),
     }
 }
 

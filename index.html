@@ -8,17 +8,18 @@
   </head>
   <body onload="onInit()">
     <h1>Book Shop</h1>
-
-    <div class="menu">
-      <input
-        oninput="onBookFilter(event)"
-        class="search"
-        type="search"
-        placeholder="Search.."
-      />
-      <!-- <button onclick="onClearFilter()">Clear</button> -->
-      <button class="add-book" onclick="onAddBook()">Add Book</button>
-    </div>
+    <section class="menu">
+      <div>
+        <input
+          oninput="onBookFilter(event)"
+          class="search"
+          type="search"
+          placeholder="Search.."
+        />
+        <button onclick="onClearFilter()">clear</button>
+        <button class="add-book" onclick="onAddBook()">Add Book</button>
+      </div>
+    </section>
 
     <table>
       <thead>
@@ -34,7 +35,7 @@
     <dialog class="book-details">
       <form method="dialog">
         <pre></pre>
-        <button class="close-details">X</button>
+        <button class="close-details">Close</button>
       </form>
     </dialog>
 

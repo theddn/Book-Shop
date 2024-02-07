@@ -10,8 +10,8 @@ function renderBooks(){
      const elBooks = document.querySelector('.books-table')
     const books = getBooks(gFilterBy)
      const strHtmls = books.map(book =>` <tr>
-     <td class="${book.id}">${book.title}</td>
-     <td class="${book.id}">${book.price}</td>
+     <td>${book.title}</td>
+     <td>${book.price}</td>
      <td>
        <button onclick="onReadBook('${book.id}')">Read</button>
        <button onclick="onUpdateBook('${book.id}')">Update</button>
