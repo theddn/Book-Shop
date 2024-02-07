@@ -36,9 +36,9 @@ function _createBooks() {
     if (!gBooks || gBooks.length === 0) {
 
         gBooks = [
-            _createBook('Monkey Puzzle', 'monkey.webp'),
-            _createBook('The Gruffalo', 'monster.webp'),
-            _createBook('Room on the Broom', 'witch.webp'),
+            _createBook('Monkey Puzzle', 'Monkey Puzzle.webp'),
+            _createBook('The Gruffalo', 'The Gruffalo.webp'),
+            _createBook('Room on the Broom', 'Room on the Broom.webp'),
         ]
         _saveBooks()
     }
