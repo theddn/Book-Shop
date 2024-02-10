@@ -6,13 +6,17 @@ body {
   display: flex;
   flex-direction: column;
   text-align: center;
-  gap: 0.5em;
+  background-image: url("../img/bookpaper.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  margin: 0;
 }
 
 table {
   align-self: center;
-  color: #333;
-  background-color: white;
+  color: #5e5858;
+  background-color: antiquewhite;
   border: 1px solid black;
 
   border-collapse: collapse;
@@ -35,7 +39,7 @@ table td {
   justify-content: space-around;
   align-items: center;
   padding: 0.5em;
-  background-color: lightblue;
+  background-image: none;
 }
 
 .search {

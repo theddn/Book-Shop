@@ -1,6 +1,8 @@
 'use strict'
 
-var gFilterBy = ''
+const gQueryOptions = {
+  filterBy: { txt: '', minRate: 0 }
+}
 
 function onInit() {
   renderBooks()
@@ -8,9 +10,11 @@ function onInit() {
 
 function renderBooks() {
   const elBooks = document.querySelector('.books-table')
-  const books = getBooks(gFilterBy)
+  const books = getBooks(gQueryOptions)
+
   const strHtmls = books.map(book => ` <tr>
      <td>${book.title}</td>
+     <td>${book.rate}</td>
      <td>${book.price}</td>
      <td>
        <button onclick="onReadBook('${book.id}')">Read</button>
@@ -20,6 +24,8 @@ function renderBooks() {
    </tr>`)
   elBooks.innerHTML = strHtmls.join('')
 }
+
+//CRUD
 
 function onRemoveBook(bookId) {
   removeBook(bookId)
@@ -57,16 +63,15 @@ function onCloseModal() {
   document.querySelector('.book-details').close()
 }
 
-function onBookFilter() {
-  const input = document.querySelector('input')
-  gFilterBy = input.value
+//TODO
+function onSearchFilter() {
+  const input = document.querySelector('.filter-txt')
+
+  gQueryOptions.filterBy.txt = input.value
 
   renderBooks()
 }
 
-function onClearFilter() {
-  const elSearch = document.querySelector('.menu input')
-  elSearch.value = gFilterBy = ''
+function onSetFilterBy(){
 
-  renderBooks()
 }

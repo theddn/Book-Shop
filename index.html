@@ -8,23 +8,37 @@
   </head>
   <body onload="onInit()">
     <h1>Book Shop</h1>
+
     <section class="menu">
-      <div>
-        <input
-          oninput="onBookFilter(event)"
-          class="search"
-          type="search"
-          placeholder="Search.."
-        />
-        <button onclick="onClearFilter()">clear</button>
-        <button class="add-book" onclick="onAddBook()">Add Book</button>
-      </div>
+      <fieldset>
+        <div class="filter-by">
+          <input
+            oninput="onSearchFilter()"
+            class="filter-txt"
+            type="search"
+            placeholder="Search.."
+          />
+          <label>
+            <span>rate</span>
+            <input
+              class="filter-slide"
+              type="range"
+              min="0"
+              max="5"
+              value="0"
+              onchange="this.title=this.value;onSetFilterBy()"
+            />
+          </label>
+          <button class="add-book" onclick="onAddBook()">Add Book</button>
+        </div>
+      </fieldset>
     </section>
 
     <table>
       <thead>
         <tr>
           <th>Title</th>
+          <th>Rate</th>
           <th>Price</th>
           <th>Actions</th>
         </tr>
