@@ -1,14 +1,19 @@
 'use strict'
 
+const STORAGE_KEY = 'bookDB'
 var gBooks
+
 _createBooks()
 
 //TODO
 function getBooks(options = {}) {
-    if (!options.filterBy) return gBooks
-    var search = gBooks.filter(book => book.title.toLowerCase().includes(options.filterBy.txt.toLowerCase()))
-    return search
-    
+    // if (!options.filterBy) return gBooks
+    // var search = gBooks.filter(book => book.title.toLowerCase().includes(options.filterBy.txt.toLowerCase()))
+    // return search
+
+    var books = _filterBooks(options.filterBy)
+    return books
+
 }
 
 function removeBook(bookId) {
@@ -35,7 +40,7 @@ function getBookById(bookId) {
 
 //private functions
 function _createBooks() {
-    gBooks = loadFromStorage('bookDB')
+    gBooks = loadFromStorage(STORAGE_KEY)
     if (!gBooks || gBooks.length === 0) {
 
         gBooks = [
@@ -64,4 +69,18 @@ function _saveBooks() {
     saveToStorage('bookDB', gBooks)
 }
 
+function getBookCount(filterBy) {
+    return _filterBooks(filterBy).length
+}
+
+function _filterBooks(filterBy) {
+    const txt = filterBy.txt.toLowerCase()
+    const minRate = filterBy.minRate
+
+    const books = gBooks.filter(car =>
+        car.title.toLowerCase().includes(txt) &&
+        car.rate >= minRate)
+
+    return books
+}
 

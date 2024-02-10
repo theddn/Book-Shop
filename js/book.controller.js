@@ -72,6 +72,13 @@ function onSearchFilter() {
   renderBooks()
 }
 
-function onSetFilterBy(){
+function onSetFilterBy() {
+  // const elBooks = document.querySelector('.filter-by .books-list')
+  const elMinRate = document.querySelector('.filter-slide')
 
+  // gQueryOptions.filterBy.txt = elBooks.value
+  gQueryOptions.filterBy.minRate = elMinRate.value
+
+  console.log(gQueryOptions.filterBy)
+  renderBooks()
 }
