@@ -9,7 +9,7 @@
   <body onload="onInit()">
     <h1>Book Shop</h1>
 
-    <section class="menu">
+    <section class="book-filter">
       <fieldset>
         <div class="filter-by">
           <input
@@ -29,20 +29,36 @@
               onchange="this.title=this.value;onSetFilterBy()"
             />
           </label>
-          <div class="sort-by">
-            <select onchange="onSetSortBy()">
-                <option value="">Select Sorting</option>
-                <option value="title">By Title</option>
-                <option value="price">By Price</option>
-                <option value="minRate">By Rate</option>
-            </select>
-            <input type="radio" class="ascending-radio" name="sort-by" value="1" onchange="onSetSortBy()" checked>
-            <label for="ascending-radio">Ascending</label><br>
-
-            <input type="radio" class="descending-radio" name="sort-by" value="-1" onchange="onSetSortBy()">
-            <label for="descending-radio">Descending</label><br>
-
           <button class="add-book" onclick="onAddBook()">Add Book</button>
+        </div>
+
+        <div class="sort-by">
+          <select onchange="onSetSortBy()">
+            <option value="">Select Sorting</option>
+            <option value="title">By Title</option>
+            <option value="price">By Price</option>
+            <option value="minRate">By Rate</option>
+          </select>
+
+          <div class="radio-buttons">
+            <span>Ascending</span>
+            <input
+              type="radio"
+              class="ascending-radio"
+              name="sort-by"
+              value="1"
+              onchange="onSetSortBy()"
+              checked
+            />
+            <span>Descending</span>
+            <input
+              type="radio"
+              class="ascending-radio"
+              name="sort-by"
+              value="-1"
+              onchange="onSetSortBy()"
+            />
+          </div>
         </div>
       </fieldset>
     </section>

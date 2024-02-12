@@ -2,7 +2,7 @@
 
 const gQueryOptions = {
   filterBy: { txt: '', minRate: 0 },
-  sortBy: {}
+  sortBy: {},
 }
 
 function onInit() {

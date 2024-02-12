@@ -83,9 +83,9 @@ function _filterBooks(filterBy) {
     const txt = filterBy.txt.toLowerCase()
     const minRate = filterBy.minRate
 
-    const books = gBooks.filter(car =>
-        car.title.toLowerCase().includes(txt) &&
-        car.rate >= minRate)
+    const books = gBooks.filter(book =>
+        book.title.toLowerCase().includes(txt) &&
+        book.rate >= minRate)
 
     return books
 }
