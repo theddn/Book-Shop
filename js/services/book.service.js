@@ -7,12 +7,18 @@ _createBooks()
 
 //TODO
 function getBooks(options = {}) {
-    // if (!options.filterBy) return gBooks
-    // var search = gBooks.filter(book => book.title.toLowerCase().includes(options.filterBy.txt.toLowerCase()))
-    // return search
-
     var books = _filterBooks(options.filterBy)
+
+    if (options.sortBy.title) {
+        books.sort((book1, book2) => book1.title.localeCompare(book2.title) * options.sortBy.title)
+    } else if (options.sortBy.price) {
+        books.sort((book1, book2) => (book1.price - book2.price) * options.sortBy.price)
+    } else if (options.sortBy.rate) {
+        books.sort((book1, book2) => (book1.rate - book2.rate) * options.sortBy.rate)
+    }
+
     return books
+
 
 }
 
@@ -38,6 +44,9 @@ function getBookById(bookId) {
     return book
 }
 
+function getBookCount(filterBy) {
+    return _filterBooks(filterBy).length
+}
 //private functions
 function _createBooks() {
     gBooks = loadFromStorage(STORAGE_KEY)
@@ -59,7 +68,7 @@ function _createBook(title, imgUrl) {
 
         id: makeId(),
         title,
-        price: getRandomInt(25, 150),
+        price: getRandomInt(0, 50),
         imgUrl,
         rate: getRandomInt(0, 5),
     }
@@ -69,9 +78,6 @@ function _saveBooks() {
     saveToStorage('bookDB', gBooks)
 }
 
-function getBookCount(filterBy) {
-    return _filterBooks(filterBy).length
-}
 
 function _filterBooks(filterBy) {
     const txt = filterBy.txt.toLowerCase()

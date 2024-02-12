@@ -19,19 +19,29 @@
             placeholder="Search.."
           />
           <label>
-            <!-- <select class="books-list" onchange="onSetFilterBy()">
-              <option value="">Select</option>
-          </select> -->
             <span>rate</span>
             <input
               class="filter-slide"
               type="range"
-              min="0"
+              min="1"
               max="5"
               value="0"
               onchange="this.title=this.value;onSetFilterBy()"
             />
           </label>
+          <div class="sort-by">
+            <select onchange="onSetSortBy()">
+                <option value="">Select Sorting</option>
+                <option value="title">By Title</option>
+                <option value="price">By Price</option>
+                <option value="minRate">By Rate</option>
+            </select>
+            <input type="radio" class="ascending-radio" name="sort-by" value="1" onchange="onSetSortBy()" checked>
+            <label for="ascending-radio">Ascending</label><br>
+
+            <input type="radio" class="descending-radio" name="sort-by" value="-1" onchange="onSetSortBy()">
+            <label for="descending-radio">Descending</label><br>
+
           <button class="add-book" onclick="onAddBook()">Add Book</button>
         </div>
       </fieldset>
@@ -41,8 +51,8 @@
       <thead>
         <tr>
           <th>Title</th>
-          <th>Rate</th>
           <th>Price</th>
+          <th>Rate</th>
           <th>Actions</th>
         </tr>
       </thead>

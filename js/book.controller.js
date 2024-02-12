@@ -1,7 +1,8 @@
 'use strict'
 
 const gQueryOptions = {
-  filterBy: { txt: '', minRate: 0 }
+  filterBy: { txt: '', minRate: 0 },
+  sortBy: {}
 }
 
 function onInit() {
@@ -14,8 +15,8 @@ function renderBooks() {
 
   const strHtmls = books.map(book => ` <tr>
      <td>${book.title}</td>
-     <td>${book.rate}</td>
      <td>${book.price}</td>
+     <td>${book.rate}</td>
      <td>
        <button onclick="onReadBook('${book.id}')">Read</button>
        <button onclick="onUpdateBook('${book.id}')">Update</button>
@@ -63,7 +64,6 @@ function onCloseModal() {
   document.querySelector('.book-details').close()
 }
 
-//TODO
 function onSearchFilter() {
   const input = document.querySelector('.filter-txt')
 
@@ -73,12 +73,26 @@ function onSearchFilter() {
 }
 
 function onSetFilterBy() {
-  // const elBooks = document.querySelector('.filter-by .books-list')
   const elMinRate = document.querySelector('.filter-slide')
 
-  // gQueryOptions.filterBy.txt = elBooks.value
   gQueryOptions.filterBy.minRate = elMinRate.value
 
-  console.log(gQueryOptions.filterBy)
+  // console.log(gQueryOptions.filterBy)
+  renderBooks()
+}
+
+function onSetSortBy() {
+  const elSortBy = document.querySelector('.sort-by select')
+  const sortBy = elSortBy.value
+
+  var dir = +document.querySelector('[name="sort-by"]:checked').value
+
+  if (sortBy === 'title') {
+    gQueryOptions.sortBy = { title: dir }
+  } else if (sortBy === 'price') {
+    gQueryOptions.sortBy = { price: dir }
+  } else if (sortBy === 'minRate') {
+    gQueryOptions.sortBy = { rate: dir }
+  }
   renderBooks()
 }
